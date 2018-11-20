@@ -5,13 +5,17 @@
 angular.module('lunchcheck', [])
 .controller('MyFirstController', MyFirstController)
 .filter('mySplit', MySplit);
-//.filter('mySplit', MySplit);
 
+//这句话是为了minification时把非文本的变量简化名称   方法1：inlane array as last element 方法2：Attach $inject to the function obeject
 MyFirstController.$inject = ['$scope', 'mySplitFilter'];
 
 function MyFirstController($scope, mySplitFilter){
  $scope.checkNum = function(){
-   var num =  mySplitFilter($scope.menu);
+   if($scope.menu == null || $scope.menu.trim() ==""){
+     $scope.message="Please enter data first";
+   }
+   //var num =  mySplitFilter($scope.menu);
+   var num = $scope.menu.split(",");
    if(num.length < 1){
      $scope.message="Please enter data first";
    }else if (num.length <=3) {
