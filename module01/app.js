@@ -16,6 +16,7 @@ function MyFirstController($scope, mySplitFilter){
    }
    //var num =  mySplitFilter($scope.menu);
    var num = $scope.menu.split(",");
+
    if(num.length < 1){
      $scope.message="Please enter data first";
    }else if (num.length <=3) {
@@ -32,10 +33,10 @@ function MySplit() {
     return out;
   };
 }
-// App.filter("MySplit", function(){
-//     return function(text){
-//         return text.split(",");
-//     }
-// });
+
+// var num = $scope.menu.split(',')
+//                    .filter(function (dish) {
+//                   return dish.trim().length > 0;
+//               }).length;
 
 })();

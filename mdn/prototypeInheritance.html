@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <title>prototypeInheritance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+    <script>
+      var a = {};
+
+      function People() {}
+      function Teacher(subject){
+        People.call(this);
+
+        this.subject = subject;
+      }
+      var p = new People;
+      var t = new Teacher("Math");
+
+      console.log("a.prototype"  + a.prototype) // 返回undefined
+      console.log(p.prototype) // 依然返回undefined
+      console.log(People.prototype) // 就返回一个{} 当然这里面有好多原生的方法
+      console.log(Teacher.prototype)
+
+      //__proto__可以让你“向父级”查看，当前对象继承的“原型”是谁？
+      console.log("a.__proto__" + a.__proto__)
+      console.log(p.__proto__)  //===People.prototype
+
+      console.log(t.__proto__)
+      console.log(People.__proto__)
+      console.log(Teacher.__proto__)
+      //console.log(People.__proto__)
+
+    </script>
+  </head>
+<body ng-app="lunchcheck">
+   <div class="container" ng-controller="MyFirstController">
+      <h1>  HelloWorld</h1>
+   </div>
+
+</body>
+</html>
