@@ -12,8 +12,8 @@ function ToBuyController($scope,ShoppingListCheckOffService){
   this.toBuyItemList = ShoppingListCheckOffService.getToBuyItems();
 
   this.buyItem = function (index) {
-    ShoppingListCheckOffService.removeItem(index);
     ShoppingListCheckOffService.addItem(index);
+    ShoppingListCheckOffService.removeItem(index);
   }
 }
 
